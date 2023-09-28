@@ -1,57 +1,35 @@
 
-# React Form Handling Challenge
+# Completely New Project for Gujarati Community
 
 Please watch the [video](https://www.youtube.com/watch?v=tIdNeoHniEY) before attempting this challenge. Now it's time to put your skills to the test with this form handling challenge.
 
-## Challenge Instructions
+## Instructions
 
-Your task is to create a form with basic validation that displays red text below the input field if the user has not entered any value. 
+Creating a registration form in a React app and connecting it to MongoDB is a common task. Here is a step-by-step guide to help you set it up:
 
-The video shows many different ways you can handle forms in React . Pick ***one*** and give it a go!
+1. Set Up Your Development Environment:
+Install Node.js and npm.
+Install MongoDB and set it up or use MongoDB Atlas, which is a cloud-based MongoDB service.
+2. Create a New React App:
 
-***Try to attempt it yourself*** by only using the video as a guide but if you get stuck, use these basic instructions below to help you. 
+2. Create a New React App:
+   npx create-react-app registration-app
+   cd registration-app
+3. Install Necessary Libraries:
+   npm install axios express mongoose body-parser cors
+4. Set Up Your Backend:
+   Inside your project directory, create a new directory named server.
+   Inside server, create a new file named server.js.
+   Set up an Express server in server.js.
+   Connect to your MongoDB instance using Mongoose.
+   Define routes, for example, a POST route to handle registration data.
+5. Create Your React Form:
+   In your React app, create a component for the registration form. Use controlled components to handle form inputs and use Axios to send a POST request to your backend          server when the form is submitted.
+6. Run Your Application:
+   Start your backend server:
+   cd server
+   node server.js
+   Start your React app:
+7.Now, you should have a functioning registration form in your React app that sends data to your backend, which then saves it to MongoDB.
 
-
-1. Create a React functional component to represent the form.
-
-2. Inside the component, initialize a state variable using `useState` to track the value entered by the user.
-xs
-
-3. Render a Form and add an input field and label within the form, Add as many as you see fit. Bind the value of the input field to the state variable you just created using the `value` attribute. Also, attach an `onChange` event handler to capture user input.
-
-4. Create a function called `handleChange`. Inside handleChange call `setInput` and pass it the `event.target.value`. If you have multiple inputs make sure you keep the other tracked inputs and dont override it. Use the video to figure out how to handle this!
-
-5. Create a button within the form and pass a function called `handleSubmit` to the onClick or onSubmit event handler. You can define the `handleSubmit` function to perform any desired actions when the button is clicked.
-
-5. In the `handleSubmit` event handler, prevent the default form submission behavior using `event.preventDefault()`.
-
-6. Perform the following validation within the `handleSubmit` event handler:
-   - Check if the input value is empty. If so, set a state variable to indicate that an error occurred.
-   - If the input value is not empty, display a success message or perform any additional actions you desire.
-   - `console.log()` the final submission object.
-
-7. Display the error message below the input field when the user has not entered anything. Use red text or any other visual indication to highlight the error.
-
-9. Style the form and input field using CSS to enhance the visual appearance. Feel free to be creative and apply your own styling preferences.
-
-10. Test your form by entering values, submitting the form, and observing the error message behavior and the console logs.
-
-## Submission
-
-Once you have completed the challenge, commit your code and submit the link to your repository or share it with your instructor for review.
-
-## Tips
-
-- Use the `useState` hook to manage the form state and keep track of user input.
-
-- Utilize the `onChange` event handler to capture user input and update the state accordingly.
-
-- Implement basic form validation by checking for empty input in the `onSubmit` event handler.
-
-- Display the error message below the input field using CSS to highlight the validation error.
-
-- Apply CSS styles to make your form visually appealing and user-friendly.
-
-- Test your form thoroughly to ensure it behaves as expected in different scenarios.
-
-Good luck with the challenge! If you have any questions or need assistance, don't hesitate to reach out to your instructor or fellow learners.
+Remember to implement proper security measures, especially when dealing with user registration and authentication. For instance, passwords should be hashed before storage (using libraries like bcrypt), and consider using authentication strategies such as JWT for keeping users authenticated.
