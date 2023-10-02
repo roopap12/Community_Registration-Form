@@ -47,9 +47,9 @@ function Form() {
     dateOfBirth: '',
     yearlyFees: '',
     functionFees: ''
-};
+  };
 
-const [formData, setFormData] = useState(initialState);
+  const [formData, setFormData] = useState(initialState);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,8 +63,8 @@ const [formData, setFormData] = useState(initialState);
         console.log(response.data);
         console.log('Resetting form data...');
         setFormData(initialState); // This resets the form data to its initial state
-    }
- 
+      }
+
     } catch (error) {
       console.error("Error registering user:", error.response?.data || error.message);
     }
@@ -123,6 +123,30 @@ const [formData, setFormData] = useState(initialState);
             <TextField className={classes.textField} variant="outlined" fullWidth id="dateOfBirth" name="dateOfBirth" label="Date of Birth" type="date" value={formData.dateOfBirth} onChange={handleInputChange} InputLabelProps={{ shrink: true }} />
           </Grid>
           <Grid item xs={12}>
+            <TextField
+              className={classes.textField}
+              variant="outlined"
+              fullWidth
+              name="yearlyFees"
+              label="Yearly Fees"
+              value={formData.yearlyFees}
+              onChange={handleInputChange}
+              type="number" // It's assumed you want a number input
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              className={classes.textField}
+              variant="outlined"
+              fullWidth
+              name="functionFees"
+              label="Function Fees"
+              value={formData.functionFees}
+              onChange={handleInputChange}
+              type="number" // It's assumed you want a number input
+            />
+          </Grid>
+          <Grid item xs={12}>
             <Button type="submit" variant="contained" color="primary">
               Sign Up
             </Button>
@@ -130,8 +154,8 @@ const [formData, setFormData] = useState(initialState);
         </Grid>
       </form>
     </Container>
-);
-  
+  );
+
 }
 
 export default Form;
